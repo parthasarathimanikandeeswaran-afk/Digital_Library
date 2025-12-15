@@ -1,0 +1,84 @@
+﻿@WebApi_HostAddress = https://localhost:7014
+# 5019
+
+GET {{WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+###
+http://localhost:5019/openapi/v1.json
+
+
+###
+@WebApi_HostAddress = https://localhost:7014
+# Alternate port if needed:
+# @WebApi_HostAddress = http://localhost:5019
+
+### 🌦 Test default endpoint
+GET {{WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+
+### 📘 Get all Books
+GET {{WebApi_HostAddress}}/api/Books
+Accept: application/json
+
+### 📘 Get Books by Category ID
+GET {{WebApi_HostAddress}}/api/Books/category/1
+Accept: application/json
+
+### 📘 Add New Book
+POST {{WebApi_HostAddress}}/api/Books
+Content-Type: application/json
+
+{
+  "title": "C# Fundamentals",
+  "author": "John Doe",
+  "description": "Beginner to Advanced C# concepts",
+  "imageUrl": "https://example.com/images/csharp.jpg",
+  "pdfUrl": "https://example.com/pdfs/csharp.pdf",
+  "categoryId": 1
+}
+
+
+---
+
+### 📚 Get all Categories
+GET {{WebApi_HostAddress}}/api/Categories
+Accept: application/json
+
+
+---
+
+### 👤 Get all Users
+GET {{WebApi_HostAddress}}/api/User
+Accept: application/json
+
+### 👤 Get User by ID
+GET {{WebApi_HostAddress}}/api/User/1
+Accept: application/json
+
+### 👤 Create User
+POST {{WebApi_HostAddress}}/api/User
+Content-Type: application/json
+
+{
+  "userName": "Sarathi",
+  "email": "sarathi@example.com",
+  "password": "12345"
+}
+
+### 👤 Update User
+PUT {{WebApi_HostAddress}}/api/User/1
+Content-Type: application/json
+
+{
+  "userName": "Sarathi M",
+  "email": "sarathi.m@example.com",
+  "password": "54321"
+}
+
+### 👤 Delete User
+DELETE {{WebApi_HostAddress}}/api/User/1
+Accept: application/json
