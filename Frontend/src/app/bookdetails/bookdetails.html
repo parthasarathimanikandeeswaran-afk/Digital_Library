@@ -1,0 +1,26 @@
+<div class="book-detail-container" *ngIf="!loading && book; else loadingOrError">
+  <div class="book-image">
+    <img [src]="book.imageUrl" alt="Book cover" />
+  </div>
+
+  <div class="book-info">
+    <h1>{{ book.title }}</h1>
+    <h3>by {{ book.author }}</h3>
+    <p class="category">Category ID: {{ book.categoryId }}</p>
+    <p class="description">{{ book.description }}</p>
+
+    <div class="buttons">
+      <button class="read-btn" (click)="onReadNow(book)">📖 Read Now</button>
+      <button class="back-btn" (click)="goBack()">⬅ Back to Library</button>
+    </div>
+  </div>
+</div>
+
+<ng-template #loadingOrError>
+  <p *ngIf="loading">Loading book details...</p>
+  <p *ngIf="!loading && errorMessage">{{ errorMessage }}</p>
+</ng-template>
+
+<footer>
+  <p>© 2025 E-Library. All rights reserved.</p>
+</footer>

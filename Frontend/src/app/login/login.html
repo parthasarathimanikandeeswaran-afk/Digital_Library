@@ -1,0 +1,44 @@
+<div class="login-container">
+  <h2>Login</h2>
+
+  <!-- 👇 Template-driven form using NgForm -->
+  <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        [(ngModel)]="email"
+        #emailRef="ngModel"
+        required
+        email
+        placeholder="you@example.com"
+      />
+      <div class="error" *ngIf="emailRef.invalid && loginForm.submitted">
+        Please enter a valid email.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        [(ngModel)]="password"
+        #passwordRef="ngModel"
+        required
+        minlength="6"
+        placeholder="Enter your password"
+      />
+      <div class="error" *ngIf="passwordRef.invalid && loginForm.submitted">
+        Password must be at least 6 characters.
+      </div>
+    </div>
+
+    <button type="submit">Login</button>
+
+    <div class="status" *ngIf="loginMessage">{{ loginMessage }}</div>
+  </form>
+</div>

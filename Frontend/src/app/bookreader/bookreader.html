@@ -1,0 +1,16 @@
+<div class="reader-container">
+  <header>
+    <h2>{{ bookTitle }}</h2>
+  </header>
+
+  <div class="pdf-viewer">
+    <iframe
+      [src]="pdfUrl"
+      width="100%"
+      height="700px"
+      style="border: none;"
+    ></iframe>
+  </div>
+
+  <button (click)="goBack()" class="btn">⬅️ Go Back</button>
+</div>

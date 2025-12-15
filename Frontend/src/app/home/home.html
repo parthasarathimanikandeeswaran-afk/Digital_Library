@@ -1,0 +1,39 @@
+<div class="navbar">
+  <div class="logo">📚 E-Library</div>
+  <div class="nav-links">
+    <a routerLink="/home">Home</a>
+    <a (click)="onLogout()" style="cursor:pointer;">Logout</a>
+  </div>
+</div>
+
+<!-- 🔍 Search and Category Filter -->
+<div class="search-section">
+  <input
+    type="text"
+    placeholder="Search books..."
+    [(ngModel)]="searchText"
+    (input)="applyFilters()"
+  />
+
+  <select [(ngModel)]="selectedCategoryId" (change)="applyFilters()">
+    <option value="">All Categories</option> <!-- ✅ -->
+    <option *ngFor="let category of categories" [value]="category.categoryId">
+      {{ category.categoryName }}
+    </option>
+  </select>
+</div>
+
+<h2 class="section-title">Popular Books</h2>
+
+<!-- 📚 Book Grid -->
+<div class="book-grid">
+  <div class="book-card" *ngFor="let book of filteredBooks">
+    <img [src]="book.imageUrl" alt="Book cover" />
+    <h3>{{ book.title }}</h3>
+    <button (click)="onReadNow(book)" class="read-btn">View Details</button>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 E-Library. All rights reserved.</p>
+</footer>
