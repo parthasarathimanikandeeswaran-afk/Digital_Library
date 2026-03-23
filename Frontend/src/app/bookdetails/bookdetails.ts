@@ -6,7 +6,7 @@ import { Authservice } from '../authservice';
 @Component({
   selector: 'app-bookdetails',
   standalone: true,
-  imports: [CommonModule], // ✅ required for *ngIf, etc.
+  imports: [CommonModule], 
   templateUrl: './bookdetails.html',
   styleUrls: ['./bookdetails.css']
 })
@@ -23,10 +23,10 @@ export class Bookdetails implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // ✅ Get book ID from route
+   
     this.bookId = Number(this.route.snapshot.paramMap.get('id'));
 
-    // ✅ Fetch book details from backend
+    
     this.authService.getBookById(this.bookId).subscribe({
       next: (data:any) => {
         this.book = data;
