@@ -1,7 +1,6 @@
 <div class="login-container">
   <h2>Login</h2>
 
-  <!-- 👇 Template-driven form using NgForm -->
   <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
     <div class="form-group">
       <label for="email">Email</label>
@@ -42,3 +41,5 @@
     <div class="status" *ngIf="loginMessage">{{ loginMessage }}</div>
   </form>
 </div>
+
+
