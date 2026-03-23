@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { Authservice } from '../authservice'; // ✅ your existing service
+import { Authservice } from '../authservice';
 
 @Component({
   selector: 'app-bookreader',
@@ -27,10 +27,10 @@ export class Bookreader implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // ✅ Get book ID from route
+
     this.bookId = Number(this.route.snapshot.paramMap.get('id'));
 
-    // ✅ Fetch book details by ID
+
     this.authService.getBookById(this.bookId).subscribe({
       next: (book:any) => {
         if (book) {
@@ -50,14 +50,14 @@ export class Bookreader implements OnInit {
     });
   }
 
-  // ✅ Open PDF in new tab
+
   downloadPdf() {
     if (this.pdfLink) {
       window.open(this.pdfLink, '_blank');
     }
   }
 
-  // ✅ Back to book details
+ 
   goBack() {
     this.router.navigate(['/book', this.bookId]);
   }
