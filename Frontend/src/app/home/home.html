@@ -6,7 +6,7 @@
   </div>
 </div>
 
-<!-- 🔍 Search and Category Filter -->
+
 <div class="search-section">
   <input
     type="text"
@@ -16,7 +16,7 @@
   />
 
   <select [(ngModel)]="selectedCategoryId" (change)="applyFilters()">
-    <option value="">All Categories</option> <!-- ✅ -->
+    <option value="">All Categories</option> 
     <option *ngFor="let category of categories" [value]="category.categoryId">
       {{ category.categoryName }}
     </option>
@@ -25,7 +25,7 @@
 
 <h2 class="section-title">Popular Books</h2>
 
-<!-- 📚 Book Grid -->
+
 <div class="book-grid">
   <div class="book-card" *ngFor="let book of filteredBooks">
     <img [src]="book.imageUrl" alt="Book cover" />
