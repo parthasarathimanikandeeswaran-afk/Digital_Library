@@ -8,21 +8,21 @@ import { environment } from '../environments/environment';
   providedIn: 'root',
 })
 export class Authservice {
-  private apiUrl = environment.apiUrl; // ✅ backend URL
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient, private cookieService: CookieService) {}
 
-  // 🧑 Register User
+ 
   register(userData: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/User`, userData);
   }
 
-  // 🔐 Login User
+  
   login(credentials: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/User/login`, credentials);
   }
 
-  // 📚 Get all books
+
   getBooks(): Observable<any> {
     return this.http.get(`${this.apiUrl}/Books`);
   }
@@ -31,37 +31,33 @@ export class Authservice {
     return this.http.get(`${this.apiUrl}/Books/${id}`);
   }
 
-  // 🗂 Get categories
+  
   getCategories(): Observable<any> {
     return this.http.get(`${this.apiUrl}/Categories`);
   }
 
-  // 👤 Get all users
+  
   getUsers(): Observable<any> {
     return this.http.get(`${this.apiUrl}/User`);
   }
 
-  // ==============================
-  // ✅ COOKIE LOGIN MANAGEMENT
-  // ==============================
-
-  // Save user email after login
+  
   setLogin(email: string) {
-    // Cookie expires in 1 day
+   
     this.cookieService.set('userEmail', email, { expires: 1, path: '/' });
   }
 
-  // Get current logged-in user's email
+  
   getUserEmail(): string {
     return this.cookieService.get('userEmail');
   }
 
-  // Check if user is logged in
+  
   isLoggedIn(): boolean {
     return this.cookieService.check('userEmail');
   }
 
-  // Logout (remove cookie)
+  
   logout() {
     this.cookieService.delete('userEmail', '/');
   }
