@@ -30,16 +30,14 @@ export class Login {
       return;
     }
 
-    // 🔐 Call backend API
+
     this.auth.login({ email: this.email, password: this.password }).subscribe({
       next: (res: any) => {
         this.loginMessage = '✅ Login successful!';
         console.log('User:', res);
 
-        // 🍪 Store user email in cookie (valid for 1 day)
         this.auth.setLogin(this.email);
 
-        // ⏳ Small delay to show success message
         setTimeout(() => {
           this.router.navigate(['/home']);
         }, 800);
@@ -53,3 +51,4 @@ export class Login {
     });
   }
 }
+
