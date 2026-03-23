@@ -1,4 +1,4 @@
-/* Simple login form styles */
+
 .login-container {
 	max-width: 360px;
 	margin: 24px auto;
@@ -45,3 +45,4 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover { background: #125ea8; }
+
