@@ -13,7 +13,7 @@ import { Authservice } from '../authservice';
 })
 export class Home implements OnInit {
   searchText = '';
-  selectedCategoryId: number | '' = ''; // ✅ Use CategoryId
+  selectedCategoryId: number | '' = ''; 
   categories: any[] = [];
   books: any[] = [];
   filteredBooks: any[] = [];
@@ -32,7 +32,7 @@ export class Home implements OnInit {
     this.loadCategories();
   }
 
-  // ✅ Load all books
+
   loadBooks() {
     this.auth.getBooks().subscribe({
       next: (data: any[]) => {
@@ -43,18 +43,17 @@ export class Home implements OnInit {
     });
   }
 
-  // ✅ Load all categories
+
   loadCategories() {
     this.auth.getCategories().subscribe({
       next: (data: any[]) => {
         console.log('📘 Categories from API:', data);
-        this.categories = data; // keep full { categoryId, categoryName }
+        this.categories = data; 
       },
       error: (err) => console.error('Error fetching categories:', err),
     });
   }
 
-  // ✅ Apply both search and category filters
   applyFilters() {
     const text = this.searchText.toLowerCase();
 
@@ -71,12 +70,12 @@ export class Home implements OnInit {
     });
   }
 
-  // ✅ View details
+ 
   onReadNow(book: any) {
     this.router.navigate(['/book', book.bookId]);
   }
 
-  // ✅ Logout
+
   onLogout() {
     this.auth.logout();
     this.router.navigate(['/login']);
