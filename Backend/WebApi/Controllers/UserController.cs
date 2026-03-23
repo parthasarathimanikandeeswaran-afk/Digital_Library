@@ -19,7 +19,7 @@ namespace WebApi.Controllers
             _configuration = configuration;
         }
 
-        // GET: api/user
+        
         [HttpGet]
         public IActionResult GetAllUsers()
         {
@@ -46,7 +46,6 @@ namespace WebApi.Controllers
             return Ok(users);
         }
 
-        // POST: api/user
         [HttpPost]
         public IActionResult CreateUser([FromBody] User user)
         {
@@ -99,7 +98,7 @@ namespace WebApi.Controllers
         }
 
 
-        // GET: api/user/{id}
+      
         [HttpGet("{id}")]
         public IActionResult GetUserById(int id)
         {
@@ -131,7 +130,7 @@ namespace WebApi.Controllers
             return Ok(user);
         }
 
-        // PUT: api/user/{id}
+  
         [HttpPut("{id}")]
         public IActionResult UpdateUser(int id, [FromBody] User user)
         {
@@ -154,7 +153,7 @@ namespace WebApi.Controllers
             return Ok("User updated successfully");
         }
 
-        // DELETE: api/user/{id}
+        
         [HttpDelete("{id}")]
         public IActionResult DeleteUser(int id)
         {
